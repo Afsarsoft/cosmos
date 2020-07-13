@@ -2,7 +2,7 @@
 
 const config = {
   endpoint: "https://task.documents.azure.com:???????",
-  key: "O7bkryfqrnLOyfoFzVJr4rdFTutg531XF2EO2?????????",
+  key: "O7bkryfqrnLOyfoFzVJr4rdFTutg531X????????",
   databaseId: "TestDB",
   containerId: "TestItems",
   partitionKey: { kind: "Hash", paths: ["/category"] }

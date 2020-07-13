@@ -1,0 +1,43 @@
+//- This code extends layout, and provides content for the content placeholder we saw in the layout.jade file earlier. In this layout, we created two HTML forms.
+//- The first form contains a table for your data and a button that allows you to update items by posting to /completeTask method of the controller.
+//- The second form contains two input fields and a button that allows you to create a new item by posting to /addtask method of the controller. That's all we need for the application to work
+
+extends layout
+block content
+     h1 #{title}
+     br
+
+     form(action="/completetask", method="post")
+      table.table.table-striped.table-bordered
+         tr
+           td Name
+           td Category
+           td Date
+           td Complete
+         if (typeof tasks === "undefined")
+           tr
+             td
+         else
+           each task in tasks
+             tr
+               td #{task.name}
+               td #{task.category}
+               - var date  = new Date(task.date);
+               - var day   = date.getDate();
+               - var month = date.getMonth() + 1;
+               - var year  = date.getFullYear();
+               td #{month + "/" + day + "/" + year}
+               td
+                if(task.completed)
+                 input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
+                else
+                 input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
+       button.btn.btn-primary(type="submit") Update tasks
+     hr
+     form.well(action="/addtask", method="post")
+       label Item Name:
+       input(name="name", type="textbox")
+       label Item Category:
+       input(name="category", type="textbox")
+       br
+       button.btn(type="submit") Add item

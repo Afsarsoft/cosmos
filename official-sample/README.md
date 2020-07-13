@@ -1,4 +1,5 @@
 ## About the code
+- Based on https://docs.microsoft.com/en-us/azure/cosmos-db/sql-api-nodejs-get-started
 - Node.js console application that connects to Azure Cosmos DB with the SQL API
 - It basically shows how to use Mode.js to work with Cosmos DB
 
